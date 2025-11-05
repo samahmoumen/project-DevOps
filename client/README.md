@@ -55,7 +55,7 @@
 
    ```console
    git clone https://github.com/elyse502/project-management.git
-   cd project-management
+   cd client
    ```
 
 2. **Install dependencies**
@@ -105,7 +105,7 @@ We welcome contributions! Please feel free to submit issues and enhancement requ
 
 ## 📜 License <a name="-license"></a>
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/elyse502/project-management/blob/main/LICENSE) file for details.
 
 ---
 
