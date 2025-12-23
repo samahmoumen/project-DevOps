@@ -8,8 +8,10 @@ export const inngest = new Inngest({ id: "project-management" });
 const syncUserCreation = inngest.createFunction(
   { id: "sync-user-from-clerk" },
   { event: "clerk/user.created" },
+
   async ({ event }) => {
     const { data } = event;
+
     await prisma.user.create({
       data: {
         id: data.id,
@@ -25,8 +27,10 @@ const syncUserCreation = inngest.createFunction(
 const syncUserDeletion = inngest.createFunction(
   { id: "delete-user-with-clerk" },
   { event: "clerk/user.deleted" },
+
   async ({ event }) => {
     const { data } = event;
+
     await prisma.user.delete({
       where: { id: data.id },
     });
@@ -37,8 +41,10 @@ const syncUserDeletion = inngest.createFunction(
 const syncUserUpdation = inngest.createFunction(
   { id: "update-user-from-clerk" },
   { event: "clerk/user.created" },
+
   async ({ event }) => {
     const { data } = event;
+
     await prisma.user.update({
       where: { id: data.id },
       data: {
@@ -54,8 +60,10 @@ const syncUserUpdation = inngest.createFunction(
 const syncWorkspaceCreation = inngest.createFunction(
   { id: "sync-workspace-from-clerk" },
   { event: "clerk/organization.created" },
+
   async ({ event }) => {
     const { data } = event;
+
     await prisma.workspace.create({
       data: {
         id: data.id,
@@ -81,6 +89,7 @@ const syncWorkspaceCreation = inngest.createFunction(
 const syncWorkspaceUpdation = inngest.createFunction(
   { id: "update-workspace-from-clerk" },
   { event: "clerk/organization.updated" },
+
   async ({ event }) => {
     const { data } = event;
 
