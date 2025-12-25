@@ -115,7 +115,7 @@ const ProjectTasks = ({ tasks }) => {
 
       await api.post(
         "/api/tasks/delete",
-        { taskIds: selectedTasks },
+        { tasksIds: selectedTasks },
         { headers: { Authorization: `Bearer ${token}` } }
       );
 
