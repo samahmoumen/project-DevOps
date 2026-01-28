@@ -1,12 +1,17 @@
-FROM node:20-slim AS build
+FROM node:20-slim
+
 WORKDIR /app
+
+RUN npm install -g serve
+
 COPY package*.json ./
-RUN npm install
+
+RUN npm install --platform=linux --arch=x64
+
 COPY . .
+
 RUN npm run build
 
-FROM nginx:stable-alpine
-COPY --from=build /app/dist /usr/share/nginx/html
-COPY nginx.conf /etc/nginx/conf.d/default.conf
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+EXPOSE 3000
+
+CMD ["serve", "-s", "dist", "-l", "3000"]
