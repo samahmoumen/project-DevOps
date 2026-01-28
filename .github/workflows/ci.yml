@@ -67,7 +67,10 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
+      - name: Set Image Names to Lowercase
+        run: |
+            echo "IMAGE_BACKEND=ghcr.io/${GITHUB_REPOSITORY,,}/backend" >> ${GITHUB_ENV}
+            echo "IMAGE_FRONTEND=ghcr.io/${GITHUB_REPOSITORY,,}/frontend" >> ${GITHUB_ENV}
       - name: Login to GHCR
         uses: docker/login-action@v3
         with:
