@@ -11,6 +11,8 @@ RUN npm install --legacy-peer-deps
 
 COPY . .
 
+RUN rm -rf node_modules/client node_modules/server
+
 RUN npx prisma generate
 
 RUN npm run build
